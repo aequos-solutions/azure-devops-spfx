@@ -26,4 +26,4 @@ gulp bundle - TODO
 gulp package-solution - TODO
 
 
-Commit 3
+Feature 3 commit 1
