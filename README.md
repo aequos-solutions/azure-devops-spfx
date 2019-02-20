@@ -26,4 +26,4 @@ gulp bundle - TODO
 gulp package-solution - TODO
 
 
-Commit 1
+Commit 2
