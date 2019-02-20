@@ -25,4 +25,4 @@ gulp serve - TODO
 gulp bundle - TODO
 gulp package-solution - TODO
 
-Feature 3 commit 1
+Release 0.3.0
