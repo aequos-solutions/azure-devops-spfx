@@ -3,7 +3,7 @@
     "solution": {
         "name": "azure-dev-ops-client-side-solution",
         "id": "13632b01-0aba-4174-9e90-679c69b2df04",
-        "version": "2.3.0.0",
+        "version": "1.7.0.0",
         "includeClientSideAssets": true
     },
     "paths": {
