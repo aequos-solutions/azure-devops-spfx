@@ -23,13 +23,11 @@ gulp.task('update-version', () => {
         pkgSolution.solution.version = newVersionNumber + '.0';
         gutil.log('New Version:\t' + pkgSolution.solution.version);
 
-        fs.writeFile('./config/package-solution.json', JSON.stringify(pkgSolution, null, 4));
+        fs.writeFile('./config/package-solution.json', JSON.stringify(pkgSolution, null, 4), (error) => {});
 
     } else {
         gutil.log('The provided version is not a valid SemVer version');
     }
-
-    return Promise.resolve();
 });
 
 gulp.task('update-webpart-desc', () => {
