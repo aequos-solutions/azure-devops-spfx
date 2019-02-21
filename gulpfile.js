@@ -29,3 +29,19 @@ gulp.task('update-version', () => {
 
     return Promise.resolve();
 });
+
+gulp.task('update-webpart-desc', () => {
+    const fs = require('fs');
+    const manifestPath = './src/webparts/helloWorld/HelloWorldWebPart.manifest.json';
+
+    if (process.argv.indexOf('--desc') !== -1) {
+                
+        const wpManifest = require(manifestPath);
+        wpManifest.preconfiguredEntries[0].properties.description = process.argv[4];
+        fs.writeFile(manifestPath, JSON.stringify(wpManifest, null, 4));
+    }
+
+    return Promise.resolve();
+});
+
+
