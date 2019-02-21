@@ -25,4 +25,4 @@ gulp serve - TODO
 gulp bundle - TODO
 gulp package-solution - TODO
 
-Bugfix 2
+realease
