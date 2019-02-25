@@ -29,18 +29,41 @@ gulp.task('update-version', () => {
     }
 });
 
-gulp.task('update-webpart-desc', () => {
+gulp.task('update-properties', () => {
+
+    const gutil = require('gulp-util');
     const fs = require('fs');
-    const manifestPath = './src/webparts/helloWorld/HelloWorldWebPart.manifest.json';
 
-    if (process.argv.indexOf('--desc') !== -1) {
-                
-        const wpManifest = require(manifestPath);
-        wpManifest.preconfiguredEntries[0].properties.description = process.argv[4];
-        fs.writeFile(manifestPath, JSON.stringify(wpManifest, null, 4));
+    const envArgIdx = process.argv.indexOf('--branch');
+    const sourceBranchName = process.argv[envArgIdx+1];
+    let env = 'staging';
+
+    if (envArgIdx !== -1) {
+
+        if (sourceBranchName.match(/(hotfix|release)/)) {
+            gutil.log('Updating Web Part settings for "Pre Production" environement triggered by source branch: ' + sourceBranchName);
+            env = 'preproduction';        
+        }
+    
+        if (sourceBranchName.match(/master/)) {
+            gutil.log('Updating Web Part settings for "Production" environement triggered by source branch: ' + sourceBranchName);
+            env = 'production';
+        }
+
+        if (sourceBranchName.match(/develop/)) {
+            gutil.log('Updating Web Part settings for "Staging" environement triggered by source branch: ' + sourceBranchName);
+            env = 'staging';
+        }
+
+        const manifestPath = './src/webparts/helloWorld/HelloWorldWebPart.manifest.json';
+        const envConfigPath = './src/webparts/helloWorld/config/' + env + '.json';
+                           
+        const wpManifest =  JSON.parse(fs.readFileSync(manifestPath));
+        const envConfig = JSON.parse(fs.readFileSync(envConfigPath));
+
+        wpManifest.preconfiguredEntries = envConfig.preconfiguredEntries
+        fs.writeFile(manifestPath, JSON.stringify(wpManifest, null, 4), (error) => {});        
     }
-
-    return Promise.resolve();
 });
 
 

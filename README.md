@@ -26,3 +26,7 @@ gulp bundle - TODO
 gulp package-solution - TODO
 
 Release PreProd
+
+Badges
+
+[![Build status](https://dev.azure.com/aequos/ModernSearch/_apis/build/status/ModernSearch-CI)](https://dev.azure.com/aequos/ModernSearch/_build/latest?definitionId=3)
