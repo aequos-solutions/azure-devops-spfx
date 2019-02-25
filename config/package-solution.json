@@ -1,9 +1,9 @@
 {
     "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
     "solution": {
-        "name": "azure-dev-ops-client-side-solution",
+        "name": "Azure Dev Ops Web Part",
         "id": "13632b01-0aba-4174-9e90-679c69b2df04",
-        "version": "1.7.0.0",
+        "version": "0.0.0.0",
         "includeClientSideAssets": true
     },
     "paths": {
