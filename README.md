@@ -26,3 +26,14 @@ gulp bundle - TODO
 gulp package-solution - TODO
 
 Release PreProd
+
+Badges
+
+Staging
+https://vsrm.dev.azure.com/aequos/_apis/public/Release/badge/701e54a1-aa4f-46b5-9a48-eb2f58352fa7/1/1
+
+PreProduction
+https://vsrm.dev.azure.com/aequos/_apis/public/Release/badge/701e54a1-aa4f-46b5-9a48-eb2f58352fa7/1/6
+
+Production
+https://vsrm.dev.azure.com/aequos/_apis/public/Release/badge/701e54a1-aa4f-46b5-9a48-eb2f58352fa7/1/7
