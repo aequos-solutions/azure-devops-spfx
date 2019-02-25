@@ -17,8 +17,10 @@ gulp.task('update-version', () => {
     if (versionArgIdx !== -1 && semver.valid(newVersionNumber)) {
                 
         const pkgSolution = require('./config/package-solution.json');
-        
         gutil.log('Old Version:\t' + pkgSolution.solution.version);
+
+        // Add the version number in the package name
+        pkgSolution.solution.name = pkgSolution.solution.name + ' - ' + newVersionNumber;
         
         pkgSolution.solution.version = newVersionNumber + '.0';
         gutil.log('New Version:\t' + pkgSolution.solution.version);
