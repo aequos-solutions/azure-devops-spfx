@@ -29,17 +29,33 @@ gulp.task('update-version', () => {
     }
 });
 
-gulp.task('update-webpart-desc', () => {
+gulp.task('update-properties', () => {
+
     const fs = require('fs');
-    const manifestPath = './src/webparts/helloWorld/HelloWorldWebPart.manifest.json';
 
-    if (process.argv.indexOf('--desc') !== -1) {
-                
+    const envArgIdx = process.argv.indexOf('--branch');
+    const sourceBranchName = process.argv[envArgIdx+1];
+    let env = 'staging';
+
+    if (versionArgIdx !== -1) {
+
+        if (sourceBranchName.match(/^([hotfix\/.+]|[release\/.+])$/)) {
+            env = 'preproduction';        
+        }
+    
+        if (sourceBranchName.match(/^master$/)) {
+            env = 'production';
+        }
+
+        const manifestPath = './src/webparts/helloWorld/HelloWorldWebPart.manifest.json';
+        const envConfig = './src/webparts/helloWorld/config/' + env + '.json';
+                           
         const wpManifest = require(manifestPath);
-        wpManifest.preconfiguredEntries[0].properties.description = process.argv[4];
-        fs.writeFile(manifestPath, JSON.stringify(wpManifest, null, 4));
-    }
 
+        wpManifest.preconfiguredEntries = envConfig.preconfiguredEntries
+        fs.writeFile(manifestPath, JSON.stringify(wpManifest, null, 4));        
+    }
+    
     return Promise.resolve();
 });
 
