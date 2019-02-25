@@ -58,8 +58,8 @@ gulp.task('update-properties', () => {
         const manifestPath = './src/webparts/helloWorld/HelloWorldWebPart.manifest.json';
         const envConfigPath = './src/webparts/helloWorld/config/' + env + '.json';
                            
-        const wpManifest = require(manifestPath);
-        const envConfig =require(envConfigPath);
+        const wpManifest =  JSON.parse(fs.readFileSync(manifestPath));
+        const envConfig = JSON.parse(fs.readFileSync(envConfigPath));
 
         wpManifest.preconfiguredEntries = envConfig.preconfiguredEntries
         fs.writeFile(manifestPath, JSON.stringify(wpManifest, null, 4), (error) => {});        

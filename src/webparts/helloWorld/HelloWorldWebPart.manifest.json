@@ -16,7 +16,7 @@
                 "default": "HelloWorld"
             },
             "description": {
-                "default": "PreProduction"
+                "default": "Production"
             },
             "officeFabricIconFontName": "Page",
             "properties": {
