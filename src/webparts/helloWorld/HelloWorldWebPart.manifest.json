@@ -16,11 +16,11 @@
                 "default": "HelloWorld"
             },
             "description": {
-                "default": "Production"
+                "default": "PreProduction"
             },
             "officeFabricIconFontName": "Page",
             "properties": {
-                "description": "Production"
+                "description": "PreProduction"
             }
         }
     ]

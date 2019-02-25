@@ -40,17 +40,17 @@ gulp.task('update-properties', () => {
 
     if (envArgIdx !== -1) {
 
-        if (sourceBranchName.match(/^(hotfix\/.+|release\/.+)$/)) {
+        if (sourceBranchName.match(/(hotfix|release)/)) {
             gutil.log('Updating Web Part settings for "Pre Production" environement triggered by source branch: ' + sourceBranchName);
             env = 'preproduction';        
         }
     
-        if (sourceBranchName.match(/^master$/)) {
+        if (sourceBranchName.match(/master/)) {
             gutil.log('Updating Web Part settings for "Production" environement triggered by source branch: ' + sourceBranchName);
             env = 'production';
         }
 
-        if (sourceBranchName.match(/^develop$/)) {
+        if (sourceBranchName.match(/develop/)) {
             gutil.log('Updating Web Part settings for "Staging" environement triggered by source branch: ' + sourceBranchName);
             env = 'staging';
         }
