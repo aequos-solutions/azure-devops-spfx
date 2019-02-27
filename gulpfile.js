@@ -9,17 +9,16 @@ build.initialize(gulp);
 gulp.task('update-version', () => {
     const gutil = require('gulp-util');
     const fs = require('fs');
-    const semver = require('semver');
 
     const versionArgIdx = process.argv.indexOf('--version');
     const newVersionNumber = process.argv[versionArgIdx+1];
 
-    if (versionArgIdx !== -1 && semver.valid(newVersionNumber)) {
+    if (versionArgIdx !== -1) {
                 
         const pkgSolution = require('./config/package-solution.json');
         gutil.log('Old Version:\t' + pkgSolution.solution.version);
         
-        pkgSolution.solution.version = newVersionNumber + '.0';
+        pkgSolution.solution.version = newVersionNumber;
         gutil.log('New Version:\t' + pkgSolution.solution.version);
 
         fs.writeFile('./config/package-solution.json', JSON.stringify(pkgSolution, null, 4), (error) => {});

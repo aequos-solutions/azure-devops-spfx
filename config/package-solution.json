@@ -3,7 +3,7 @@
     "solution": {
         "name": "Azure Dev Ops Web Part",
         "id": "13632b01-0aba-4174-9e90-679c69b2df04",
-        "version": "0.0.0.0",
+        "version": "1.0.0.0",
         "includeClientSideAssets": true
     },
     "paths": {

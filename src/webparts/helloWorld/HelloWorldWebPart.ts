@@ -21,7 +21,7 @@ export default class HelloWorldWebPart extends BaseClientSideWebPart<IHelloWorld
     const element: React.ReactElement<IHelloWorldProps > = React.createElement(
       HelloWorld,
       {
-        description: this.properties.description
+        description: this.dataVersion.toString()
       }
     );
 
@@ -32,8 +32,8 @@ export default class HelloWorldWebPart extends BaseClientSideWebPart<IHelloWorld
     ReactDom.unmountComponentAtNode(this.domElement);
   }
 
-  protected get dataVersion(): Version {
-    return Version.parse('1.0');
+  protected get dataVersion(): Version {    
+    return Version.parse(this.manifest.version);
   }
 
   protected getPropertyPaneConfiguration(): IPropertyPaneConfiguration {
